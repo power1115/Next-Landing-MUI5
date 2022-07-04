@@ -11,16 +11,16 @@ const theme = createTheme({
         },
         mode: 'light',
         primary: {
-            main: '#F8FCFF',
-            dark: '#222223',
-            light: '#52C0FF',
-            contrastText: '#222223',
+            main: '#8EADD5',
+            dark: '#F6F6F6',
+            light: '#F6F6F6',
+            contrastText: '#272D38',
         },
         secondary:{
             main:'#E15C19',
         },
         text:{
-            primary: '#222223',
+            primary: '#272D38',
             secondary: '#535354'
         },
         background:{

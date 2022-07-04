@@ -18,7 +18,7 @@ type LayoutProps = {
 
 const Layout:NextPage<LayoutProps> = ({ children }) => {
     return (
-        <Box>
+        <Box color='text.primary'>
             <Header />
             {/* <Content> */}
                 {children}
