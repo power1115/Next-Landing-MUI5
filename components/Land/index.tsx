@@ -108,10 +108,6 @@ const Land:NextPage = () => {
                                 <img src='Company logo (2).png' height='100%' />
                                 <img src='Company logo (3).png' height='100%' />
                             </Stack>
-                            {/* <CenteralGrid container item xs={3}><img src='Company logo.png' /></CenteralGrid>
-                            <CenteralGrid container item xs={3}><img src='Company logo (1).png' /></CenteralGrid>
-                            <CenteralGrid container item xs={3}><img src='Company logo (2).png' /></CenteralGrid>
-                            <CenteralGrid container item xs={3}><img src='Company logo (3).png' /></CenteralGrid> */}
                         </Box>
                     </CenteralGrid>
 
