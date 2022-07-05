@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
 
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
 import { Container } from '@mui/system';
 import { Box, Button, Grid, Stack, Typography } from '@mui/material';
-import { alignProperty } from '@mui/material/styles/cssUtils';
 
 const Root = styled('div')(({ theme }) => ({
     padding: theme.spacing(1),
@@ -13,14 +12,6 @@ const Root = styled('div')(({ theme }) => ({
     paddingBottom:'60px',
     
   }));
-
-const Ellipse = styled(Box)(({theme}) => ({
-    width:'679px',
-    height:'679px', 
-    position:'absolute',
-    backgroundColor: '#8EADD5', 
-    filter: 'blur(306px)',
-}));
 
 const CenteralGrid = styled(Grid)(({ theme }) => ({
     alignItems:'center',
@@ -48,10 +39,12 @@ const testimonialItem = [
 
 const Land:NextPage = () => {
     return (
-        <Root sx={{ position:'relative' }} >
-            <Container >
-                <Ellipse top = '-324px' left = 'calc(50% - 679px/2 - 601.5px)' />
-                <Box position='absolute' height='679px' top='875px' right='0px'>
+        <Root>
+            <Container  sx={{ position:'relative' }} >
+                <Box position='absolute' top='-110px' left='0px'>
+                    <img src='ellipse1.svg' />
+                </Box>
+                <Box position='absolute' height='679px' top={{md:'875px', xs:'1500px'}} right='0px'>
                     <img src='ellipse2.svg' />
                 </Box>
                 <Grid position='relative'>
