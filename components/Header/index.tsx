@@ -24,6 +24,12 @@ import {
     MenuItem,
 } from '@mui/material'
 
+import { styled } from '@mui/material/styles';
+
+const StickBar = styled(AppBar)(({ theme }) => ({
+ backgroundColor:'transparent',
+ py:'20px'
+}))
 
 interface Props {
     /**
@@ -51,7 +57,6 @@ function ElevationScroll(props: Props) {
     if (trigger==true) {
       const clone = cloneElement(children, {
         elevation: 4,
-        sx:'backgroundColor=white'
       });
       console.log(clone,'321a')
       return clone
@@ -89,7 +94,7 @@ const Header:NextPage = () => {
     return (
         <>
       <ElevationScroll>
-        <AppBar sx={{backgroundColor:'transparent', py:'20px'}}>
+        <StickBar>
             <Container>
             <Toolbar>
                 <Typography
@@ -100,9 +105,9 @@ const Header:NextPage = () => {
                 >
                     <b>DIGITAL AGENCY</b>
                 </Typography>
-                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                    {navItems.map((item) => (
-                    <Button key={item} sx={{ color: '#000' }}>
+                <Box display= {{ xs: 'none', sm: 'block' }} >
+                    {navItems.map((item, index) => (
+                    <Button key={index} sx={{ color: '#000' }}>
                         {item}
                     </Button>
                     ))}
@@ -110,7 +115,7 @@ const Header:NextPage = () => {
                 
                 {/* mobile menu */}
 
-                <Box sx={{ display: { xs: 'flex', sm: 'none' } }} >
+                <Box display= {{ xs: 'flex', sm: 'none' }} >
                   <IconButton
                     size="large"
                     aria-label="account of current user"
@@ -149,22 +154,8 @@ const Header:NextPage = () => {
 
             </Toolbar>
             </Container>
-        </AppBar>
-      </ElevationScroll >
-      
-    {/* <Container>
-        <Box sx={{ my: 2 }} pt='60px'>
-          {[...new Array(12)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            )
-            .join('\n')}
-        </Box>
-    </Container> */}
-      
+        </StickBar>
+      </ElevationScroll >      
       </>
     )
 }

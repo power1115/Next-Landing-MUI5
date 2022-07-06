@@ -47,8 +47,8 @@ const Land:NextPage = () => {
                 <Box position='absolute' height='679px' top={{md:'875px', xs:'1500px'}} right='0px'>
                     <img src='ellipse2.svg' />
                 </Box>
-                <Grid position='relative'>
-                    <CenteralGrid container md={12} my='50px'>
+                <Grid item position='relative'>
+                    <CenteralGrid item container md={12} my='50px'>
                         <CenteralGrid container md={6} item >
                             <Stack spacing={3}>
                                 <Typography
@@ -79,7 +79,7 @@ const Land:NextPage = () => {
                         </CenteralGrid>
                     </CenteralGrid>
 
-                    <CenteralGrid container direction='column'>
+                    <CenteralGrid item container direction='column'>
                         <Typography
                             variant="h1"
                             component="div"
@@ -104,7 +104,7 @@ const Land:NextPage = () => {
                         </Box>
                     </CenteralGrid>
 
-                    <CenteralGrid container md={12} my='50px'>
+                    <CenteralGrid item container md={12} my='50px'>
                         <CenteralGrid md={6} item>
                             <Stack width='450px' height='450px'>
                                 <img src='designer-team-working-on-creative-design.png' />
@@ -136,7 +136,7 @@ const Land:NextPage = () => {
                         </CenteralGrid>
                     </CenteralGrid>
                     
-                    <CenteralGrid container md={12} my='50px'>
+                    <CenteralGrid item container md={12} my='50px'>
                         {/* <Ellipse left= 'calc(50% - 679px/2 + 818.5px)' top='-275px' /> */}
                         <CenteralGrid md={6} item >
                             <Stack spacing={3}>
@@ -170,7 +170,7 @@ const Land:NextPage = () => {
                         
                     </CenteralGrid>
                     
-                    <CenteralGrid container textAlign='center' direction='column'>
+                    <CenteralGrid item container textAlign='center' direction='column'>
                         <Typography
                             variant="h1"
                             component="div"
@@ -188,9 +188,9 @@ const Land:NextPage = () => {
                             <b>Read What Other <br /> have to Say</b>
                         </Typography>
                         <Stack direction={{md:'row', xs:'column'}} spacing={10} my='50px'>
-                            {testimonialItem.map((item,index) => (
-                                <Box sx={{backgroundColor:'#F6F6F6'}} maxWidth='345px' borderRadius='20px' padding='24px'>
-                                    <Stack spacing={2} justifyContent='center' alignItems='center' key = {index}>
+                            {testimonialItem.map((item, index) => (
+                                <Box sx={{backgroundColor:'#F6F6F6'}} maxWidth='345px' borderRadius='20px' padding='24px' key = {index}>
+                                    <Stack spacing={2} justifyContent='center' alignItems='center'>
                                         <img src={item.img} width='130px' height='130px' />
                                         <Typography
                                             variant="h1"
@@ -214,7 +214,7 @@ const Land:NextPage = () => {
                         </Stack>
                     </CenteralGrid>
                     
-                    <CenteralGrid container md={12} px='75px' sx={{backgroundColor:'#F6F6F6', borderRadius:'20px'}}>
+                    <CenteralGrid item container md={12} px='75px' sx={{backgroundColor:'#F6F6F6', borderRadius:'20px'}}>
                         <CenteralGrid md={6} item>
                             <Stack width='450px' height='450px'>
                                 <img src='customer-support.png' />

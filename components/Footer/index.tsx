@@ -7,7 +7,7 @@ const Footer: NextPage = () => {
     return (
         <Box sx={{backgroundColor:'secondary.main'}} pt='75px'>
         <Container>
-        <Grid container justifyContent='space-around' textAlign={{xs:'center', lg:'start'}} alignItems='flex-start'>
+        <Grid container item justifyContent='space-around' textAlign={{xs:'center', lg:'start'}} alignItems='flex-start'>
                 <Grid container justifyContent='space-around' item xs={12} sm={6} lg={3} my='30px'>
                     <Stack justifyContent='center' spacing={4}>
                         <Typography
@@ -161,7 +161,7 @@ const Footer: NextPage = () => {
                     </Stack>
                 </Grid>
         </Grid>
-        <Grid container justifyContent='center' mt='100px' pb='20px'>
+        <Grid container item justifyContent='center' mt='100px' pb='20px'>
             <Typography
                 variant="h1"
                 component="div"
