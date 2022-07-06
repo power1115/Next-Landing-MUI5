@@ -4,21 +4,11 @@ import { cloneElement, useState } from 'react';
 import { 
     AppBar, 
     Button, 
-    CssBaseline, 
-    Divider, 
-    Drawer, 
-    List, 
-    ListItem, 
-    ListItemButton, 
-    ListItemText, 
-    Slide, 
     Toolbar, 
     Typography, 
     useScrollTrigger,
     Box,
     Container,
-    Paper,
-    colors,
     IconButton,
     Menu,
     MenuItem,
@@ -57,15 +47,15 @@ function ElevationScroll(props: Props) {
     if (trigger==true) {
       const clone = cloneElement(children, {
         elevation: 4,
+        color:'primary'
+
       });
-      console.log(clone,'321a')
       return clone
     }
     else {
       const clone = cloneElement(children, {
         elevation: 0,
       });
-      console.log(clone,'321a')
       return clone
     }
   }
@@ -73,28 +63,18 @@ function ElevationScroll(props: Props) {
 const Header:NextPage = () => {
   
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
     
     return (
         <>
       <ElevationScroll>
-        <StickBar>
+        <AppBar  color='transparent' sx={{ py:'20px' }}>
             <Container>
             <Toolbar>
                 <Typography
@@ -110,7 +90,8 @@ const Header:NextPage = () => {
                     <Button key={index} sx={{ color: '#000' }}>
                         {item}
                     </Button>
-                    ))}
+                    ))
+                    }
                 </Box>
                 
                 {/* mobile menu */}
@@ -154,7 +135,7 @@ const Header:NextPage = () => {
 
             </Toolbar>
             </Container>
-        </StickBar>
+        </AppBar>
       </ElevationScroll >      
       </>
     )
