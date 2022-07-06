@@ -22,10 +22,6 @@ const StickBar = styled(AppBar)(({ theme }) => ({
 }))
 
 interface Props {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
     window?: () => Window;
     children: React.ReactElement;
 }
@@ -35,9 +31,6 @@ const navItems = ['Home', 'About', 'testimonials', 'Contact'];
 
 function ElevationScroll(props: Props) {
     const { children, window } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
     const trigger = useScrollTrigger({
       disableHysteresis: true,
       threshold: 0,
@@ -69,75 +62,72 @@ const Header:NextPage = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
     
-    return (
-        <>
-      <ElevationScroll>
-        <AppBar  color='transparent' sx={{ py:'20px' }}>
-            <Container>
-            <Toolbar>
-                <Typography
-                    variant="h6"
-                    component="div"
-                    fontSize='20px'
-                    sx={{ flexGrow: 1 }}
+  return (
+    <ElevationScroll>
+      <AppBar  color='transparent' sx={{ py:'20px' }}>
+          <Container>
+          <Toolbar>
+              <Typography
+                  variant="h6"
+                  component="div"
+                  fontSize='20px'
+                  sx={{ flexGrow: 1 }}
+              >
+                  <b>DIGITAL AGENCY</b>
+              </Typography>
+              <Box display= {{ xs: 'none', sm: 'block' }} >
+                  {navItems.map((item, index) => (
+                  <Button key={index} sx={{ color: '#000' }}>
+                      {item}
+                  </Button>
+                  ))
+                  }
+              </Box>
+              
+              {/* mobile menu */}
+
+              <Box display= {{ xs: 'flex', sm: 'none' }} >
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
                 >
-                    <b>DIGITAL AGENCY</b>
-                </Typography>
-                <Box display= {{ xs: 'none', sm: 'block' }} >
-                    {navItems.map((item, index) => (
-                    <Button key={index} sx={{ color: '#000' }}>
-                        {item}
-                    </Button>
-                    ))
-                    }
-                </Box>
-                
-                {/* mobile menu */}
+                  <img src='Vector.png' />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: 'block', sm: 'none' },
+                  }}
+                >
+                  {navItems.map((item, index) => (
+                    <MenuItem key={index} onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center">{item}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
 
-                <Box display= {{ xs: 'flex', sm: 'none' }} >
-                  <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    onClick={handleOpenNavMenu}
-                    color="inherit"
-                  >
-                    <img src='Vector.png' />
-                  </IconButton>
-                  <Menu
-                    id="menu-appbar"
-                    anchorEl={anchorElNav}
-                    anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'left',
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'left',
-                    }}
-                    open={Boolean(anchorElNav)}
-                    onClose={handleCloseNavMenu}
-                    sx={{
-                      display: { xs: 'block', sm: 'none' },
-                    }}
-                  >
-                    {navItems.map((item, index) => (
-                      <MenuItem key={index} onClick={handleCloseNavMenu}>
-                        <Typography textAlign="center">{item}</Typography>
-                      </MenuItem>
-                    ))}
-                  </Menu>
-                </Box>
-
-            </Toolbar>
-            </Container>
-        </AppBar>
-      </ElevationScroll >      
-      </>
-    )
+          </Toolbar>
+          </Container>
+      </AppBar>
+    </ElevationScroll >
+  )
 }
 export default Header
